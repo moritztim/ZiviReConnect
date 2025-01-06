@@ -1,0 +1,17 @@
+{
+	"$schema": "https://json.schemastore.org/chrome-manifest",
+	"manifest_version": 3,
+	"name": "ZivReConnect",
+	"description": "Bessere User Experience für ZiviConnect ",
+	"version": "0.0.0",
+	"permissions": ["activeTab", "cookies", "storage"],
+	"host_permissions": [
+		"https://ziviconnect.admin.ch/home",
+		"https://ziviconnect.admin.ch/zdp/*"
+	],
+	"applications": {
+		"gecko": {
+			"id": "zivi-reconnect@moritztim.dev"
+		}
+	}
+}
