@@ -1,7 +1,8 @@
 {
 	"$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
 	"tasks": {
-		"dev": "deno run --watch src/main.ts",
+		"dev": "bext --watch",
+		"build": "bext",
 		"prettier": "deno run -EWRS npm:prettier --config .prettierrc.yml",
 		"check": "deno run -A prettier --check . && deno lint",
 		"format": "deno run -A prettier --write ."
