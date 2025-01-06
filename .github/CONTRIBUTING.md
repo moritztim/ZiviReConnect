@@ -6,6 +6,15 @@ Thank you for considering contributing to this project! This document outlines t
 
 ### Development Environment
 
+This project is developed using the following technologies:
+
+- [TypeScript](https://www.typescriptlang.org/) (main language)
+- [Deno](https://deno.land/) (runtime)
+- [Prettier](https://prettier.io/) (main code formatter)
+- [EditorConfig](https://editorconfig.org/) (code formatting configuration)
+- [LintStaged](https://github.com/okonet/lint-staged) (formatting git hook)
+- [Visual Studio Code](https://github.com/microsoft/vscode) (editor)
+
 ### Editor Configuration
 
 - Install the recommended extensions (or equivalents), listed in [`.vscode/extensions.json](../.vscode/extensions.json) and will show up in the Extensions view in VSCode.
