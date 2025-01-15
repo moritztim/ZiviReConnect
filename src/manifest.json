@@ -1,5 +1,6 @@
 {
-	"$schema": "https://json.schemastore.org/chrome-manifest",
+	"$schema": "https://json.schemastore.org/webextension.json",
+	"$comment": "Note, that the schema is out of date, it only supports v2.",
 	"manifest_version": 3,
 	"name": "ZivReConnect",
 	"description": "Bessere User Experience für ZiviConnect",
@@ -9,7 +10,7 @@
 		"https://ziviconnect.admin.ch/home",
 		"https://ziviconnect.admin.ch/zdp/*"
 	],
-	"applications": {
+	"browser_specific_settings": {
 		"gecko": {
 			"id": "zivi-reconnect@moritztim.dev"
 		}

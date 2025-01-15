@@ -1,17 +1,9 @@
 {
 	"$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
 	"tasks": {
-		"bext": {
-			"description": "Run globally installed bext or run it from jsr",
-			"command": "(which bext && bext --source=src) || deno run --allow-run --allow-env --allow-read --allow-write jsr:@bpev/bext/bin --source=src"
-		},
-		"dev": {
-			"description": "Build the extension for firefox and chrome, then re-build on changes to source files",
-			"command": "deno task bext --watch"
-		},
-		"build": {
-			"description": "Build the extension for firefox and chrome",
-			"command": "deno task bext"
+		"install": {
+			"description": "Install dependencies and run a polyfill script",
+			"command": "deno install --allow-scripts=npm:spawn-sync@1.0.15"
 		},
 		"prettier": {
 			"description": "Run prettier on the code",
@@ -30,5 +22,10 @@
 		"useTabs": true,
 		"proseWrap": "never",
 		"lineWidth": 100
+	},
+	"nodeModulesDir": "auto",
+	"imports": {
+		"web-ext": "npm:web-ext@^8.3.0",
+		"webextension-polyfill": "npm:webextension-polyfill@^0.12.0"
 	}
 }
