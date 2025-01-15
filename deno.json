@@ -1,11 +1,30 @@
 {
 	"$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
 	"tasks": {
-		"dev": "bext --watch",
-		"build": "bext",
-		"prettier": "deno run -EWRS npm:prettier --config .prettierrc.yml",
-		"check": "deno run -A prettier --check . && deno lint",
-		"format": "deno run -A prettier --write ."
+		"bext": {
+			"description": "Run globally installed bext or run it from jsr",
+			"command": "(which bext && bext --source=src) || deno run --allow-run --allow-env --allow-read --allow-write jsr:@bpev/bext/bin --source=src"
+		},
+		"dev": {
+			"description": "Build the extension for firefox and chrome, then re-build on changes to source files",
+			"command": "deno task bext --watch"
+		},
+		"build": {
+			"description": "Build the extension for firefox and chrome",
+			"command": "deno task bext"
+		},
+		"prettier": {
+			"description": "Run prettier on the code",
+			"command": "deno run -EWRS npm:prettier --config .prettierrc.yml"
+		},
+		"check": {
+			"description": "Check the code with prettier and deno lint",
+			"command": "deno task prettier --check . && deno lint"
+		},
+		"format": {
+			"description": "Format the code with prettier",
+			"command": "deno task prettier --write ."
+		}
 	},
 	"fmt": {
 		"useTabs": true,

@@ -6,6 +6,11 @@ Thank you for considering contributing to this project! This document outlines t
 
 ### Development Environment
 
+#### Building and Running
+
+1. Install [Deno](https://deno.land/).
+2. Have a look at the available tasks by running `deno task` from the command line.
+
 This project is developed using the following technologies:
 
 - [TypeScript](https://www.typescriptlang.org/) (main language)
