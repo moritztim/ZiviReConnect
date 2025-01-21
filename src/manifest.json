@@ -4,13 +4,15 @@
 	"manifest_version": 3,
 	"name": "ZivReConnect",
 	"description": "Bessere User Experience für ZiviConnect",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"permissions": ["storage"],
 	"content_scripts": [
 		{
 			"matches": [
 				"*://ziviconnect.admin.ch/home",
-				"*://ziviconnect.admin.ch/zdp/*"
+				"*://ziviconnect.admin.ch/zdp/*",
+				"*://www.ezivi.admin.ch/**",
+				"*://ezivi.admin.ch/**"
 			],
 			"js": ["content.js", "redirect.js"]
 		}
