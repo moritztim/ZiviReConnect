@@ -36,6 +36,18 @@
 		"build": {
 			"description": "Build the extension",
 			"command": "deno task build:transpile && deno task build:copy && deno task run:web-ext build"
+		},
+		"run": {
+			"description": "Run the extension in Firefox",
+			"command": "deno task build:transpile && deno task build:copy && deno task run:web-ext run"
+		},
+		"run:firefox": {
+			"description": "Run the extension in Firefox",
+			"command": "deno task run"
+		},
+		"run:chromium": {
+			"description": "Run the extension in Chromium",
+			"command": "deno task run --target=chromium"
 		}
 	},
 	"fmt": {
