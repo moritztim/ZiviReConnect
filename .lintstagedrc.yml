@@ -1,1 +1,1 @@
-"*": deno run format:write
+"*": deno task format:write
