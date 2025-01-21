@@ -43,6 +43,9 @@
 		"proseWrap": "never",
 		"lineWidth": 100
 	},
+	"compilerOptions": {
+		"lib": ["dom", "dom.iterable", "deno.window"]
+	},
 	"nodeModulesDir": "auto",
 	"imports": {
 		"web-ext": "npm:web-ext@^8.3.0",
