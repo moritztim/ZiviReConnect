@@ -5,17 +5,17 @@
 			"description": "Install dependencies and run a polyfill script",
 			"command": "deno install --allow-scripts=npm:spawn-sync@1.0.15"
 		},
-		"prettier": {
+		"run:prettier": {
 			"description": "Run prettier on the code",
 			"command": "deno run -EWRS npm:prettier --config .prettierrc.yml"
 		},
-		"check": {
+		"format:check": {
 			"description": "Check the code with prettier and deno lint",
-			"command": "deno task prettier --check . && deno lint"
+			"command": "deno task run:prettier --check . && deno lint"
 		},
-		"format": {
+		"format:write": {
 			"description": "Format the code with prettier",
-			"command": "deno task prettier --write ."
+			"command": "deno task run:prettier --write ."
 		}
 	},
 	"fmt": {
