@@ -23,7 +23,7 @@
 		},
 		"run:web-ext": {
 			"description": "Run the extension in Firefox",
-			"command": "deno run --allow-env --allow-sys --allow-read --allow-write npm:web-ext --source-dir=dist/js"
+			"command": "deno run --allow-env --allow-sys --allow-read --allow-write --allow-net --allow-run npm:web-ext --source-dir=dist/js --artifacts-dir=dist/bin"
 		},
 		"build:transpile": {
 			"description": "Transpile the TypeScript to browser JavaScript",
@@ -35,7 +35,7 @@
 		},
 		"build": {
 			"description": "Build the extension",
-			"command": "deno task build:transpile && deno task build:copy && deno task run:web-ext build --artifacts-dir=dist/bin"
+			"command": "deno task build:transpile && deno task build:copy && deno task run:web-ext build"
 		}
 	},
 	"fmt": {
