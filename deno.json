@@ -21,6 +21,10 @@
 			"description": "Build the extension",
 			"command": "deno run --allow-env --allow-read --allow-write --allow-run npm:esbuild"
 		},
+		"run:web-ext": {
+			"description": "Run the extension in Firefox",
+			"command": "deno run --allow-env --allow-sys --allow-read --allow-write npm:web-ext --source-dir=dist/js"
+		},
 		"build:transpile": {
 			"description": "Transpile the TypeScript to browser JavaScript",
 			"command": "deno task run:esbuild src/**/*.ts --bundle --outdir=dist/js --format=iife --platform=browser"
@@ -28,6 +32,10 @@
 		"build:copy": {
 			"description": "Copy everything but the TypeScript files to the dist folder",
 			"command": "mkdir -p dist/js && cp -r src/* dist/js && rm -rf dist/js/**/*.ts"
+		},
+		"build": {
+			"description": "Build the extension",
+			"command": "deno task build:transpile && deno task build:copy && deno task run:web-ext build --artifacts-dir=dist/bin"
 		}
 	},
 	"fmt": {
