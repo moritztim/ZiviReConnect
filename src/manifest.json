@@ -17,8 +17,7 @@
 	],
 	"action": {
 		"default_icon": "img/zivi-reconnect-square.png",
-		"default_title": "ZiviReConnect",
-		"default_popup": "popup/main.html"
+		"default_title": "ZiviReConnect"
 	},
 	"browser_specific_settings": {
 		"gecko": {
