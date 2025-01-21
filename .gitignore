@@ -1,3 +1,7 @@
 # Build files
 dist
+
+# Non-redistributable assets
+assets
+
 node_modules
