@@ -1,0 +1,28 @@
+{
+	"$schema": "https://raw.githubusercontent.com/moritztim/schemastore/c95f5eca0d48c2f6976e083ebd49335f6d2309d5/src/schemas/json/webextension.json",
+	"$comment": "Note, that the schema is out of date, it only supports v2.",
+	"manifest_version": 3,
+	"name": "ZivReConnect",
+	"description": "Bessere User Experience für ZiviConnect",
+	"version": "0.0.0",
+	"permissions": ["storage"],
+	"content_scripts": [
+		{
+			"matches": [
+				"*://ziviconnect.admin.ch/home",
+				"*://ziviconnect.admin.ch/zdp/*"
+			],
+			"js": ["content.js"]
+		}
+	],
+	"action": {
+		"default_icon": "img/zivi-reconnect-square.png",
+		"default_title": "ZiviReConnect",
+		"default_popup": "popup/main.html"
+	},
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "zivi-reconnect@moritztim.dev"
+		}
+	}
+}
