@@ -35,7 +35,7 @@
 		},
 		"build:copy": {
 			"description": "Copy everything but the TypeScript files to the dist folder",
-			"command": "mkdir -p dist/js && cp -r src/* dist/js && cp -r img dist/js; rm -rf dist/js/**/*.ts"
+			"command": "mkdir -p dist/js && rsync --archive --exclude='*.ts' src/ dist/js/ && rsync -av img/ dist/js/img/"
 		},
 		"build": {
 			"description": "Build the extension",
