@@ -29,9 +29,17 @@
 			"description": "Download the fonts used by ZiviConnect after manually logging in",
 			"command": "mkdir -p assets/fonts && firefox https://ziviconnect.admin.ch/assets/fonts/FrutigerNeueW02-Light.woff2"
 		},
-		"build:transpile": {
+		"build:transpile:ts": {
 			"description": "Transpile the TypeScript to browser JavaScript",
 			"command": "deno task run:esbuild src/**/*.ts --bundle --outdir=dist/js --format=iife --platform=browser"
+		},
+		"build:transpile:json": {
+			"description": "Transpile the comment and schema enabled JSON to vanilla JSON",
+			"command": "deno run -EWRS scripts/strip-json.ts"
+		},
+		"build:transpile": {
+			"description": "Transpile the TypeScript and JSON files",
+			"dependencies": ["build:transpile:ts", "build:transpile:json"]
 		},
 		"build:copy": {
 			"description": "Copy everything but the TypeScript files to the dist folder",
@@ -62,10 +70,14 @@
 		"lineWidth": 100
 	},
 	"compilerOptions": {
-		"lib": ["dom", "dom.iterable", "deno.window"]
+		"lib": ["dom", "dom.iterable", "deno.window", "browser"]
 	},
 	"nodeModulesDir": "auto",
 	"imports": {
+		"@libs/diff": "jsr:@libs/diff@^3.0.0",
+		"@luxass/strip-json-comments": "jsr:@luxass/strip-json-comments@^1.4.0",
+		"@std/path": "jsr:@std/path@^1.0.8",
+		"prettier": "npm:prettier@^3.4.2",
 		"web-ext": "npm:web-ext@^8.3.0",
 		"webextension-polyfill": "npm:webextension-polyfill@^0.12.0"
 	}

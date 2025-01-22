@@ -1,12 +1,27 @@
 {
   "version": "4",
   "specifiers": {
+    "jsr:@libs/diff@3": "3.0.0",
+    "jsr:@luxass/strip-json-comments@^1.4.0": "1.4.0",
+    "jsr:@std/path@^1.0.8": "1.0.8",
     "npm:esbuild@*": "0.24.2",
     "npm:lint-staged@*": "15.3.0",
     "npm:prettier@*": "3.4.2",
+    "npm:prettier@^3.4.2": "3.4.2",
     "npm:web-ext@*": "8.3.0",
     "npm:web-ext@^8.3.0": "8.3.0",
     "npm:webextension-polyfill@0.12": "0.12.0"
+  },
+  "jsr": {
+    "@libs/diff@3.0.0": {
+      "integrity": "81b3c0352e70b61f5967a9d3a4ec871d83867fd127681e28f7e9573e0eb5d20b"
+    },
+    "@luxass/strip-json-comments@1.4.0": {
+      "integrity": "d370eb3b90fba2badeef12655668ebe5da18e3401e97c7e1413565cf81022933"
+    },
+    "@std/path@1.0.8": {
+      "integrity": "548fa456bb6a04d3c1a1e7477986b6cffbce95102d0bb447c67c4ee70e0364be"
+    }
   },
   "npm": {
     "@babel/code-frame@7.26.2": {
@@ -2264,6 +2279,10 @@
   },
   "workspace": {
     "dependencies": [
+      "jsr:@libs/diff@3",
+      "jsr:@luxass/strip-json-comments@^1.4.0",
+      "jsr:@std/path@^1.0.8",
+      "npm:prettier@^3.4.2",
       "npm:web-ext@^8.3.0",
       "npm:webextension-polyfill@0.12"
     ]
