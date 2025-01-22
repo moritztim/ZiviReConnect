@@ -40,22 +40,16 @@
 		"build": {
 			"description": "Build the extension",
 			"command": "deno task run:web-ext build",
-			"dependencies": [
-				"build:transpile",
-				"build:copy"
-			]
+			"dependencies": ["build:transpile", "build:copy"]
 		},
 		"run": {
 			"description": "Run the extension in Firefox",
 			"command": "deno task run:web-ext run",
-			"dependencies": [
-				"build:transpile",
-				"build:copy"
-			]
+			"dependencies": ["build:transpile", "build:copy"]
 		},
 		"run:firefox": {
 			"description": "Run the extension in Firefox",
-			"dependencies": [ "run" ]
+			"dependencies": ["run"]
 		},
 		"run:chromium": {
 			"description": "Run the extension in Chromium",
