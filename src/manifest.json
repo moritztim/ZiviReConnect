@@ -1,5 +1,4 @@
 {
-	"$comment": "Note, that the schema is out of date, it only supports v2.",
 	"$schema": "https://raw.githubusercontent.com/moritztim/schemastore/refs/heads/WebExtension-Manifest-V3/src/schemas/json/webextension.json",
 	"manifest_version": 3,
 	"name": "ZivReConnect",
