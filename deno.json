@@ -1,6 +1,10 @@
 {
 	"$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
 	"tasks": {
+		"environment-variables": {
+			"description": "Declare environment variables",
+			"command": "export SRC=src DEST=build SCRIPTS=scripts"
+		},
 		"install": {
 			"description": "Install dependencies and run a polyfill script",
 			"command": "deno install --allow-scripts=npm:spawn-sync@1.0.15"
@@ -11,11 +15,13 @@
 		},
 		"format:check": {
 			"description": "Check the code with prettier and deno lint",
-			"command": "deno task run:prettier --check . && deno lint"
+			"command": "deno task run:prettier --check $SRC && deno lint",
+			"dependencies": ["environment-variables"]
 		},
 		"format:write": {
 			"description": "Format the code with prettier",
-			"command": "deno task run:prettier --write ."
+			"command": "deno task run:prettier --write $SRC",
+			"dependencies": ["environment-variables"]
 		},
 		"run:esbuild": {
 			"description": "Build the extension",
@@ -27,15 +33,18 @@
 		},
 		"download-font": {
 			"description": "Download the fonts used by ZiviConnect after manually logging in",
-			"command": "mkdir -p assets/fonts && firefox https://ziviconnect.admin.ch/assets/fonts/FrutigerNeueW02-Light.woff2"
+			"command": "mkdir -p $DEST/assets/fonts && firefox https://ziviconnect.admin.ch/assets/fonts/FrutigerNeueW02-Light.woff2",
+			"dependencies": ["environment-variables"]
 		},
 		"build:transpile:ts": {
 			"description": "Transpile the TypeScript to browser JavaScript",
-			"command": "deno task run:esbuild src/**/*.ts --bundle --outdir=dist/js --format=iife --platform=browser"
+			"command": "deno task run:esbuild $SRC/**/*.ts --bundle --outdir=$DIST/js --format=iife --platform=browser",
+			"dependencies": ["environment-variables"]
 		},
 		"build:transpile:json": {
 			"description": "Transpile the comment and schema enabled JSON to vanilla JSON",
-			"command": "deno run -EWRS scripts/strip-json.ts"
+			"command": "deno run -EWRS $scripts/strip-json.ts",
+			"dependencies": ["environment-variables"]
 		},
 		"build:transpile": {
 			"description": "Transpile the TypeScript and JSON files",
@@ -43,7 +52,8 @@
 		},
 		"build:copy": {
 			"description": "Copy everything but the TypeScript files to the dist folder",
-			"command": "mkdir -p dist/js && rsync --archive --exclude='*.ts' src/ dist/js/ && rsync -av img/ dist/js/img/"
+			"command": "mkdir -p $DEST/js && rsync --archive --exclude='*.ts' $SRC/ $DEST/js/ && rsync -av img/ dist/js/img/",
+			"dependencies": ["environment-variables"]
 		},
 		"build": {
 			"description": "Build the extension",
