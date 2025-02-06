@@ -38,12 +38,12 @@
 		},
 		"build:transpile:ts": {
 			"description": "Transpile the TypeScript to browser JavaScript",
-			"command": "deno task run:esbuild $SRC/**/*.ts --bundle --outdir=$DIST/js --format=iife --platform=browser",
+			"command": "deno task run:esbuild $SRC/**/*.ts --bundle --outdir=$DEST/js --format=iife --platform=browser",
 			"dependencies": ["environment-variables"]
 		},
 		"build:transpile:json": {
 			"description": "Transpile the comment and schema enabled JSON to vanilla JSON",
-			"command": "deno run -EWRS $scripts/strip-json.ts",
+			"command": "deno run -EWRS $SCRIPTS/strip-json.ts",
 			"dependencies": ["environment-variables"]
 		},
 		"build:transpile": {
