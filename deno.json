@@ -3,7 +3,7 @@
 	"tasks": {
 		"environment-variables": {
 			"description": "Declare environment variables",
-			"command": "export SRC=src DEST=build SCRIPTS=scripts"
+			"command": "export SRC=src DEST=build SCRIPTS=scripts; echo \"Source: \\\"$SRC\\\", Destination: \\\"$DEST\\\", Scripts: \\\"$SCRIPTS\\\"\""
 		},
 		"install": {
 			"description": "Install dependencies and run a polyfill script",
