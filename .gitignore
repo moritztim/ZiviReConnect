@@ -1,5 +1,6 @@
 # Build files
 dist
+build
 
 # Non-redistributable assets
 assets
