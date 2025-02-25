@@ -3,7 +3,7 @@
 	"tasks": {
 		"environment-variables": {
 			"description": "Declare environment variables",
-			"command": "export SRC=src DEST=build SCRIPTS=scripts; echo \"Source: \\\"$SRC\\\", Destination: \\\"$DEST\\\", Scripts: \\\"$SCRIPTS\\\"\""
+			"command": "export SRC=src DEST=build SCRIPTS=scripts; echo Source: \"$SRC\", Destination: \"$DEST\", Scripts: \"$SCRIPTS\""
 		},
 		"install": {
 			"description": "Install dependencies and run a polyfill script",
@@ -15,12 +15,12 @@
 		},
 		"format:check": {
 			"description": "Check the code with prettier and deno lint",
-			"command": "deno task run:prettier --check $SRC && deno lint",
+			"command": "deno task run:prettier --check \"$SRC\" && deno lint",
 			"dependencies": ["environment-variables"]
 		},
 		"format:write": {
 			"description": "Format the code with prettier",
-			"command": "deno task run:prettier --write $SRC",
+			"command": "deno task run:prettier --write \"$SRC\"",
 			"dependencies": ["environment-variables"]
 		},
 		"run:esbuild": {
@@ -33,17 +33,17 @@
 		},
 		"download-font": {
 			"description": "Download the fonts used by ZiviConnect after manually logging in",
-			"command": "mkdir -p $DEST/assets/fonts && firefox https://ziviconnect.admin.ch/assets/fonts/FrutigerNeueW02-Light.woff2",
+			"command": "mkdir -p \"$DEST\"/assets/fonts && firefox https://ziviconnect.admin.ch/assets/fonts/FrutigerNeueW02-Light.woff2",
 			"dependencies": ["environment-variables"]
 		},
 		"build:transpile:ts": {
 			"description": "Transpile the TypeScript to browser JavaScript",
-			"command": "deno task run:esbuild $SRC/**/*.ts --bundle --outdir=$DEST/js --format=iife --platform=browser",
+			"command": "deno task run:esbuild \"$SRC\"/**/*.ts --bundle --outdir=\"$DEST\"/js --format=iife --platform=browser",
 			"dependencies": ["environment-variables"]
 		},
 		"build:transpile:json": {
 			"description": "Transpile the comment and schema enabled JSON to vanilla JSON",
-			"command": "deno run -EWRS $SCRIPTS/strip-json.ts",
+			"command": "deno run -EWRS \"$SCRIPTS\"/strip-json.ts",
 			"dependencies": ["environment-variables"]
 		},
 		"build:transpile": {
@@ -52,7 +52,7 @@
 		},
 		"build:copy": {
 			"description": "Copy everything but the TypeScript files to the dist folder",
-			"command": "mkdir -p $DEST/js && rsync --archive --exclude='*.ts' $SRC/ $DEST/js/ && rsync -av img/ dist/js/img/",
+			"command": "mkdir -p \"$DEST\"/js && rsync --archive --exclude='*.ts' $SRC/ $DEST/js/ && rsync -av img/ dist/js/img/",
 			"dependencies": ["environment-variables"]
 		},
 		"build": {
